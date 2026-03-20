@@ -10,10 +10,16 @@
 
 </br>
 
+This project is a simple application for encrypting image files using an sXOR encryption algorithm. The application allows the user to select several image files, enter a numeric key, and then encrypt the image using the XOR operation of the specified key.
 
+</br>
 
+![PictureCrypter](https://github.com/user-attachments/assets/f7760885-cac4-4cd6-bb62-0552923a75c0)
 
+</br>
 
+# XOR cipher:
+In [cryptography](https://en.wikipedia.org/wiki/Cryptography), the simple XOR cipher is a type of additive cipher, an encryption algorithm that operates according to the principles:
 
 
 
