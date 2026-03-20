@@ -34,4 +34,30 @@ A ⊕ B = B ⊕ A,
 
 For example where ⊕ denotes the [exclusive](https://en.wikipedia.org/wiki/Exclusive_or) disjunction (XOR) operation. This operation is sometimes called modulus 2 addition (or subtraction, which is identical). With this logic, a string of text can be encrypted by applying the bitwise XOR operator to every character using a given key. To decrypt the output, merely reapplying the XOR function with the key will remove the cipher.
 
+# Encrypting:
+```pascal
+procedure EncryptBMP(const BMP: TBitmap; Key: Integer);
+var
+  BytesPorScan: Integer;
+  w, h: integer;
+  p: pByteArray;
+begin
+  Screen.Cursor := crHourGlass;
+  try
+    BytesPorScan := Abs(Integer(BMP.ScanLine[1]) -
+      Integer(BMP.ScanLine[0]));
+  except
+    raise Exception.Create('Error');
+  end;
+  RandSeed := Key;
 
+  for h := 0 to BMP.Height - 1 do
+  begin
+    P := BMP.ScanLine[h];
+    for w := 0 to BytesPorScan - 1 do
+      P^[w] := P^[w] xor Random(StrToInt(Form1.Edit2.Text));
+  end;
+  Sleep(250);
+  Screen.Cursor := crDefault;
+end;
+```
